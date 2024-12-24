@@ -1,4 +1,4 @@
-import { add, addWithCustomDelimiters, addWithNewLineBetweenNumbers } from './stringCalculator';
+import { add, addThrowNegativeNumber, addWithCustomDelimiters, addWithNewLineBetweenNumbers } from './stringCalculator';
 
 describe('String Calculator', () => {
   it('should return 0 for an empty string', () => {
@@ -22,5 +22,8 @@ describe('String Calculator', () => {
     expect(addWithCustomDelimiters("//;\n1;2")).toBe(3);
     expect(addWithCustomDelimiters("//|\n3|4|5")).toBe(12);
   });
-  
+  it('should throw an exception for negative numbers', () => {
+    expect(() => addThrowNegativeNumber("1,-2,3")).toThrow("negative numbers not allowed: -2");
+    expect(() => addThrowNegativeNumber("1,-2,-3")).toThrow("negative numbers not allowed: -2,-3");
+  });  
 });
