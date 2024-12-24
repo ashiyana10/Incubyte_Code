@@ -1,6 +1,14 @@
 export function add(numbers: string): number {
-    if (!numbers) return 0; //empty string
-    if (!numbers.includes(",")) return parseInt(numbers, 10); //single number
-    return 0; // Placeholder for passing the test.
+    // empty string
+    if (!numbers){
+       return 0;
+    }
+    // single number
+    if (!numbers.includes(",")) {
+      return parseInt(numbers, 10);
+    }
+    // two numbers
+    const nums = numbers.split(",").map((n) => parseInt(n, 10));
+    return nums.reduce((sum, num) => sum + num, 0);
   }
   

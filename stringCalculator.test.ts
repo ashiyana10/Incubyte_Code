@@ -8,4 +8,7 @@ describe('String Calculator', () => {
     expect(add("1")).toBe(1);
     expect(add("5")).toBe(5);
   });
+  it('should return the sum of two numbers', () => {
+    expect(add("1,5")).toBe(6);
+  });
 });
