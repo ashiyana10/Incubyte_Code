@@ -1,4 +1,4 @@
-import { add, addWithNewLineBetweenNumbers } from './stringCalculator';
+import { add, addWithCustomDelimiters, addWithNewLineBetweenNumbers } from './stringCalculator';
 
 describe('String Calculator', () => {
   it('should return 0 for an empty string', () => {
@@ -18,4 +18,9 @@ describe('String Calculator', () => {
   it('should handle newlines as delimiters', () => {
     expect(addWithNewLineBetweenNumbers("1\n2,3")).toBe(6);
   });
+  it('should support custom delimiters', () => {
+    expect(addWithCustomDelimiters("//;\n1;2")).toBe(3);
+    expect(addWithCustomDelimiters("//|\n3|4|5")).toBe(12);
+  });
+  
 });

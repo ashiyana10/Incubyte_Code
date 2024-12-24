@@ -21,3 +21,21 @@ export function addWithNewLineBetweenNumbers(numbers: string): number {
   const nums = normalized.split(",").map((n) => parseInt(n, 10));
   return nums.reduce((sum, num) => sum + num, 0);
 }
+
+export function addWithCustomDelimiters(numbers: string): number {
+  // empty string
+  if (!numbers) {
+    return 0;
+  }
+
+  let delimiter = ",";
+  if (numbers.startsWith("//")) {
+    const parts = numbers.split("\n");
+    delimiter = parts[0].slice(2);
+    numbers = parts[1];
+  }
+
+  const normalized = numbers.replace(/\n/g, delimiter);
+  const nums = normalized.split(delimiter).map((n) => parseInt(n, 10));
+  return nums.reduce((sum, num) => sum + num, 0);
+}
