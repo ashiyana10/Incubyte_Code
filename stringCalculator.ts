@@ -7,7 +7,7 @@ export function add(numbers: string): number {
     if (!numbers.includes(",")) {
       return parseInt(numbers, 10);
     }
-    // two numbers
+    // two or more numbers 
     const nums = numbers.split(",").map((n) => parseInt(n, 10));
     return nums.reduce((sum, num) => sum + num, 0);
   }
